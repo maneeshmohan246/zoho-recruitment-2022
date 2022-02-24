@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+
+int pattern(char str[50],int len)  //function "pattern" definition
+{
+    int k,m=0,mid;
+    mid=len/2;
+    for(int i=len;i>0;i--)
+    {
+        for(int j=0;j<i;j++)
+        {
+            if(m+j<=len-2)
+                printf(" ");
+              
+            for(k=0;k<=m;k++)
+            {
+                if(m+j>len-2&&m+j<=len)
+                if(mid+k>len-1)
+                    printf("%c ",str[(mid+k)-len]);
+                else
+                    printf("%c ",str[mid+k]);
+            }
+            printf(" ");
+        }
+        printf("\n");
+        m++;
+    }
+}
+
+int main()
+{
+    int len;
+    char str[50];
+    scanf("%s",str);    //input string
+    len=strlen(str);
+    pattern(str,len);   //function "pattern" call
+    return 0;
+}
+
